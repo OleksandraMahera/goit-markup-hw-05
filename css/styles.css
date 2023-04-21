@@ -99,8 +99,6 @@ button {
     align-items: center;
 }
 
-
-
 .header-logo {
     display: inline-block;
     margin-right: 76px;
@@ -123,6 +121,7 @@ button {
 
 
 .header-link {
+    position: relative;
     display: inline-block;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -146,6 +145,29 @@ button {
 .header-link:hover,
 .header-link:focus {
     color: var(--hover-focus-color);
+}
+
+.header-link::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+
+}
+
+.header-link.current {
+    color: var(--hover-focus-color);
+}
+
+.header-link.current::after,
+.header-link:hover::after,
+.header-link:focus::after {
+    background-color: var(--hover-focus-color);
 }
 
 .contacts-email,
@@ -545,6 +567,34 @@ button {
     width: calc((100% - 48px) / 3);
 }
 
+.card-label {
+   height: 100%;
+   padding-right: 32px;
+   padding-left: 32px;
+   padding-top: 40px;
+   margin-bottom: 164px;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 1.5;
+   letter-spacing: 0.02em;
+   color: var(--light-background);
+   background-color: var(--acent-color);
+}
+
+
+.card-box {
+    position: relative;
+}
+
+.overlay {
+ position: absolute;
+ width: 360px;
+ height: 300px;
+ left: 0;
+ top: 0;
+}
+
 .card-link {
     display: block;
     color: var(--header-text);
@@ -633,3 +683,47 @@ button {
 .clients-icon {
     fill: currentColor;
 }
+
+
+/* Modal styles */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    background-color: rgba(17, 19, 25, 0.2);
+    backdrop-filter: blur (6px);
+}
+
+.modal {
+    position: absolute;
+
+    width: 408px;
+    min-height: 576px;
+    left: 516px;
+    top: 88px;
+    padding: 24px;
+
+    background-color: #fcfcfc;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.modal-btn {
+    display: block;
+    margin-left: auto;
+
+    width: 24px;
+    height: 24px;
+    left: 876px;
+    top: 112px;
+
+    border-radius: 50%;
+    border: none;
+
+    cursor: pointer;
+}
+
+.modal-icon {}
